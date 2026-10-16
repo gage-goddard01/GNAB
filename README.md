@@ -49,11 +49,11 @@ GNAB is being developed incrementally to demonstrate Python programming, problem
 
 The repository includes planning documents:
 
-GNAB Pseudocode
+GNABv1 Pseudocode
 
 Development Milestones
 
-GNAB Features
+GNABv1 Features
 
 GNAB code outline
 

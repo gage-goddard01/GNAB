@@ -1,0 +1,31 @@
+
+(Plaid)
+API to connect to Regions
+API to connect to Chase
+
+Groups (i.e. Immediate Obligations)
+	Categories (i.e. Progressive)
+		Assigned money
+		Available money
+
+
+Views:
+All Transactions
+Transactions by bank account
+
+
+Individual Transaction Data:
+	Inflow/Outflow
+	1) Payee
+	2) Group/Category
+	3) Account
+	4) Date
+	5) Cleared?
+	6) Flag
+	7) Optional Memo
+	8) Option to reject transaction
+
+
+
+
+

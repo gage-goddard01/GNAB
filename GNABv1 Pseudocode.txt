@@ -1,0 +1,66 @@
+#GNABv1 Pseudocode 
+
+# Purpose: With limited AI help, construct a basic personal budgeting console application using python. Create reusable functions. Create a main() function that can perform calculations from user input. 
+
+# Budget scope: 1 month
+
+# Imports
+import pandas as pd
+
+# Enter transaction function
+
+transaction_amount = float(input("Enter the transaction amount: $"))
+transaction_payee = input("Enter the Payee: ")
+transaction_group = input("Enter the transaction group: ")
+transaction_category = input("Enter the transaction category: ")
+transaction_account = input("Enter the transaction account: ")
+transaction_date = input("Enter the transaction date: ")
+transaction_memo = input("(Optional) Enter the transaction memo: ")
+
+
+
+# Misc
+bank_account_running_total = 
+ready_to_assign = 
+
+
+# Adds/Subtracts transaction from banking total and display remainder
+def run_transaction(bank_account_running_total, transaction_amount): 
+	bank_account_running_total += transaction_amount
+	print("New Bank Account Balance: $", bank_account_running_total)
+	bank_account_running_total += transaction_amount
+	return bank_account_running_total
+	
+
+# Display Banking Info
+def display_banking_info():
+	print("Bank Name:", bank_name)
+	print("Account Number:", bank_account_number)
+	print("Routing Number:", bank_routing_number)
+	print("Account Balance:", bank_account_running_total)
+
+# Identify expenses/ list categories
+budget_group = input("Enter your budget group: ")
+budget_category = input("Enter your budget category: ")
+budget_category_amount = float(input("Assign your category's budget an amount: $"))
+
+
+
+# Main(): Display welcome and menu // menu options include enter transaction (income or expense), enter amount in bank, plan expenses
+
+print("Welcome to GNABv1")
+print("We need to collect a lot of information to get started...")
+
+	# Collect Banking Info
+
+	bank_name = input("Enter your bank’s name: ")
+	bank_routing_number = int(input("Enter the bank account’s routing number: "))
+	bank_account_number = int(input("Enter the bank account’s account number: "))
+	bank_account_initial_amt = float(input("Enter the bank account’s initial amount: "))
+
+
+# Main Guard
+if __name__ == "__main__":
+    main()
+
+

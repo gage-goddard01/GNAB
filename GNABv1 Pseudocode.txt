@@ -6,6 +6,7 @@
 
 # Imports
 import pandas as pd
+import math
 
 # Enter transaction function
 
@@ -19,11 +20,6 @@ transaction_memo = input("(Optional) Enter the transaction memo: ")
 
 
 
-# Misc
-bank_account_running_total = 
-ready_to_assign = 
-
-
 # Adds/Subtracts transaction from banking total and display remainder
 def run_transaction(bank_account_running_total, transaction_amount): 
 	bank_account_running_total += transaction_amount
@@ -35,8 +31,6 @@ def run_transaction(bank_account_running_total, transaction_amount):
 # Display Banking Info
 def display_banking_info():
 	print("Bank Name:", bank_name)
-	print("Account Number:", bank_account_number)
-	print("Routing Number:", bank_routing_number)
 	print("Account Balance:", bank_account_running_total)
 
 # Identify expenses/ list categories

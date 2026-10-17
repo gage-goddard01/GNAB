@@ -1,7 +1,5 @@
 
-(Plaid)
-API to connect to Regions
-API to connect to Chase
+API to connect to real bank
 
 Groups (i.e. Immediate Obligations)
 	Categories (i.e. Progressive)

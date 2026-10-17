@@ -6,6 +6,8 @@ GNAB is a Python-based personal budgeting application designed to help users org
 
 The application is currently being developed as a command-line program, with future plans to provide a graphical interface.
 
+
+
 ## Technologies Used
 
 Python
@@ -21,7 +23,7 @@ Visual Studio Code
 
 Command-line menu interface
 
-Default budget categories
+Default budget categories and amounts
 
 Creation of custom budget categories
 
@@ -31,6 +33,8 @@ Category balance calculations
 
 User input validation for menu selections
 
+## Groups vs Categories
+A category is like a row in a spreadsheet. You give a category a name like "Groceries" and it has its own budget. You can also see how much you have spent from that category's budget and what remains from your budget. You can group categories together in Groups. For instance, you can create a Group called "Daily Living" and put categories in it like "Transportation", "Groceries", "Toiletries."
 
 ## Installation and Usage
 
@@ -43,22 +47,17 @@ Navigate to the GNAB project directory.
 Run python3 GNABv1.py.
 
 
-## Development Documentation
+## Development History
 
-GNAB is being developed incrementally to demonstrate Python programming, problem-solving, and software development skills.
+GNAB is being developed incrementally to demonstrate
+Python programming and software development skills.
 
-The repository includes planning documents:
+- [Development Log](DEVELOPMENT_LOG.md)
+- [Development Milestones](GNAB%20Milestones.txt)
+- [Pseudocode](GNABv1%20Pseudocode.txt)
 
-GNABv1 Pseudocode
-
-Development Milestones
-
-GNABv1 Features
-
-GNAB code outline
-
-Git commit history documents changes made throughout development.
-
+The Git commit history provides a chronological record
+of changes to the source code.
 
 ## Planned Improvements
 

@@ -1,4 +1,4 @@
-Milestone 1: Working Python budget tracker
+Milestone 1: Working CLI Python budget tracker
 Create functions that accept income and expenses, calculate totals, and present a budget summary in the terminal.
 Proof of progress: You can successfully manage a basic monthly budget using a Python script.
 
@@ -12,7 +12,7 @@ Proof of progress: You can close the application, reopen it, and retrieve your f
 
 
 
-Milestone 3: Personal web dashboard
+Milestone 3: Working applicaation GUI
 Use Flask to build a browser interface for adding transactions, viewing balances, and tracking spending.
 Proof of progress: You have a functional personal budgeting application running locally.
 
@@ -24,9 +24,3 @@ Deploy a separate instance using fictional financial data. Add instructions, scr
 Proof of progress: An employer can open your website and explore the budgeting application without accessing your personal information.
 
 
-
-5. Why this could be valuable for your IT career
-Although you're pursuing cybersecurity rather than necessarily becoming a software developer, this project could demonstrate several transferable skills.
-You would gain experience working with databases, troubleshooting applications, understanding how web servers process requests, and protecting sensitive information.
-You could also discuss security decisions during an interview, such as why you isolated your private database from the public demonstration and how you validated user input.
-I would document those decisions in the project's GitHub README.

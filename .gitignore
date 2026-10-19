@@ -16,5 +16,24 @@ transactions.csv
 *.db
 *.sqlite3
 
-# macOS files
+# macOS system files
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Windows shortcut files
+*.lnk
+
+# Local financial data
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-*

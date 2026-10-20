@@ -37,3 +37,6 @@ data/
 *.sqlite
 *.sqlite3
 *.db-*
+
+# Financial transaction records
+all_transactions.csv

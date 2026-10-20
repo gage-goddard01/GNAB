@@ -7,50 +7,230 @@
 # Imports
 import pandas as pd
 import math
-
-# Enter transaction function
-
-transaction_amount = float(input("Enter the transaction amount: $"))
-transaction_payee = input("Enter the Payee: ")
-transaction_group = input("Enter the transaction group: ")
-transaction_category = input("Enter the transaction category: ")
-transaction_account = input("Enter the transaction account: ")
-transaction_date = input("Enter the transaction date: ")
-transaction_memo = input("(Optional) Enter the transaction memo: ")
-
-
-
-# Adds/Subtracts transaction from banking total and display remainder
-def run_transaction(bank_account_running_total, transaction_amount): 
-	bank_account_running_total += transaction_amount
-	print("New Bank Account Balance: $", bank_account_running_total)
-	bank_account_running_total += transaction_amount
-	return bank_account_running_total
-	
-
-# Display Banking Info
-def display_banking_info():
-	print("Bank Name:", bank_name)
-	print("Account Balance:", bank_account_running_total)
-
-# Identify expenses/ list categories
-budget_group = input("Enter your budget group: ")
-budget_category = input("Enter your budget category: ")
-budget_category_amount = float(input("Assign your category's budget an amount: $"))
+import time
 
 
 
 # Main(): Display welcome and menu // menu options include enter transaction (income or expense), enter amount in bank, plan expenses
 
 print("Welcome to GNABv1")
-print("We need to collect a lot of information to get started...")
+print("If this is your first time using GNAB, we will need to create some CSV files. 
+If you have already created those files, the application will load them." )
 
-	# Collect Banking Info
+	# GNAB checks for prexisting files
 
-	bank_name = input("Enter your bank’s name: ")
-	bank_routing_number = int(input("Enter the bank account’s routing number: "))
-	bank_account_number = int(input("Enter the bank account’s account number: "))
-	bank_account_initial_amt = float(input("Enter the bank account’s initial amount: "))
+        # Check for pre-existing all_transactions
+            FUNC_does_all_transactions_exist
+        # Check for pre-existing budget
+            FUNC does_budget_exist
+        # Check for pre-exisitng banking info
+            FUNC does_bank_info_exist
+
+         IF files do not exist:
+ 
+            # Create DataFrame to store all transactions
+	            FUNC create_trasnactions_DF
+
+                 # Make all_transaction DF persistent
+
+                
+            # this makes the empty list of transactions the user's all transactions DataFrame
+	        FUNC empty_to_user_transactions_list
+
+
+            # Create Default Budget DataFrame
+	        FUNC create_default_budget
+
+                # Budget Persistence--budget stays in storage
+                # after application closes
+
+            # this makes the default budget the user's main budget that
+            FUNC default_to_user_budget 
+
+          # Collect Banking Info--specific to CLI
+
+	        FUNC collect banking info
+
+            # Process Banking Info--works with GUI and CLI
+            FUNC process_banking_info
+
+            # Store Banking info to CSV
+
+         else:
+            # Load Budget
+            FUNC load_budget()
+
+            # Load all_transaction
+            FUNC load_all_transactions
+
+            # Load Banking Info
+            FUNC load_banking_info
+
+
+         
+    # Give user option Import Transactions from CSV into all_transactions.csv
+	FUNC import transactions from CSV
+
+	# Display Banking Info
+	FUNC display_banking_info--verifies that data was collected
+
+
+	# Functions that exist within Customize Budget Main Menu
+	FUNC adjust_budget_value # include data validation
+
+	# Customize Budget Main menu--works for CLI or GUI
+	FUNC customize_budget_menu
+	    customize_budget = "y"
+		while customize_budget == "y":
+				print()
+				print("=============================================")
+				print("Customize Budget Menu")
+				print("1. Add a new group/category/budget item")
+				print("2. Enter a new transaction")
+				print("3. Change Name for Group/Category or adjust values in budget")
+				print("4. Display Budget")
+				print("5. Display All Transactions")
+				print("6. No changes")
+				print("=============================================")
+				print()
+ 			
+			try:
+              custbudg_MainMenu_selection = collect_user_input_as_integer()
+			except ValueError:
+				invalid selection message
+				continue loop
+			
+            if custbudg_MainMenu_selection not in (1, 2, 3, 4, 5, 6):
+                print("Invalid Selection. Type 1, 2, 3, 4, 5 or 6.")
+                print()
+                continue
+
+            elif custbudg_MainMenu_selection == 1:
+                new_budget_item_group = input("Enter the name of your new budget category: ")
+                new_budget_item_category = input("Enter the name of your new budget category: ")
+                new_budget_item_amount = float(input("Allocate your category's budget an amount: $"))
+                budget.loc[len(budget)] = [new_budget_item_group, new_budget_item_category, new_budget_item_amount, 0.00, new_budget_item_amount]
+                display_budget(budget)
+                time.sleep(2)
+            elif custbudg_MainMenu_selection == 2:
+                FUNC enter_transaction()
+            elif custbudg_MainMenu_selection == 3:
+                # Create Sub Menu for Main Menu option 3
+                print("=============================================")
+                print("OPTIONS:")
+                print("1. Change the name of a Group or Category")
+                print("2. Change the amount allocated to a category's budget")
+                print("=============================================")
+                
+                # Initialize and validate Variable that contains user selection for submenu1 selection
+                # User can only enter integer
+                try:
+                    custbudg_submenu1_selection = int(input("Enter an option from the above menu: "))
+            
+                except ValueError: 
+                    print("Invalid Selection. Type 1 or 2.")
+                    print()
+                    continue
+                
+                # Validate the user only selects 1 or 2 from Submenu1 options
+                if custbudg_submenu1_selection not in (1, 2):
+                    print("Invalid Selection. Type 1 or 2.")
+                    print()
+                    continue
+                
+                # If statement for when user wans to change name of group or category
+                if custbudg_submenu1_selection == 1:
+                    print("You chose option 1.")
+
+                # if statement for when user wants to change category's allocated amount
+                if custbudg_submenu1_selection == 2:
+                    adjust_budget_value(budget)
+
+            elif custbudg_MainMenu_selection == 4:
+                display_budget(budget)
+            elif custbudg_MainMenu_selection == 5:
+                break
+            elif custbudg_MainMenu_selection == 6:
+                f.display_transactions(all_transactions)
+    print("-------------------------------")
+    print(budget)
+    print("-------------------------------")
+
+	## CLI Main Menu Input Functions
+	FUNC cli_main_menu_Selection
+		try:
+            custbudg_MainMenu_selection = int(input("Enter an option from the above menu: "))
+            
+            except ValueError: 
+                print("Invalid Selection. Type 1, 2, 3, 4, 5 or 6.")
+                print()
+                continue
+
+            if custbudg_MainMenu_selection not in (1, 2, 3, 4, 5, 6):
+                print("Invalid Selection. Type 1, 2, 3, 4, 5 or 6.")
+                print()
+                continue
+			elif custbudg_MainMenu_selection == 1:
+                new_budget_item_group = input("Enter the name of your new budget category: ")
+                new_budget_item_category = input("Enter the name of your new budget category: ")
+                new_budget_item_amount = float(input("Allocate your category's budget an amount: $"))
+                budget.loc[len(budget)] = [new_budget_item_group, new_budget_item_category, new_budget_item_amount, 0.00, new_budget_item_amount]
+                display_budget(budget)
+                time.sleep(2)
+            elif custbudg_MainMenu_selection == 2:
+                enter_transaction()
+            elif custbudg_MainMenu_selection == 3:
+                # Create Sub Menu for Main Menu option 3
+                print("=============================================")
+                print("OPTIONS:")
+                print("1. Change the name of a Group or Category")
+                print("2. Change the amount allocated to a category's budget")
+                print("=============================================")
+                
+                # Initialize and validate Variable that contains user selection for submenu1 selection
+                # User can only enter integer
+                try:
+                    custbudg_submenu1_selection = int(input("Enter an option from the above menu: "))
+            
+                except ValueError: 
+                    print("Invalid Selection. Type 1 or 2.")
+                    print()
+                    continue
+                
+                # Validate the user only selects 1 or 2 from Submenu1 options
+                if custbudg_submenu1_selection not in (1, 2):
+                    print("Invalid Selection. Type 1 or 2.")
+                    print()
+                    continue
+                
+                # If statement for when user wans to change name of group or category
+                if custbudg_submenu1_selection == 1:
+                    print("You chose option 1.")
+
+                # if statement for when user wants to change category's allocated amount
+                if custbudg_submenu1_selection == 2:
+                    adjust_budget_value(budget)
+
+            elif custbudg_MainMenu_selection == 4:
+                display_budget(budget)
+            elif custbudg_MainMenu_selection == 5:
+                break
+            elif custbudg_MainMenu_selection == 6:
+                f.display_transactions(all_transactions)
+    print("-------------------------------")
+    print(budget)
+    print("-------------------------------")
+
+	## Various Views/Sorting of Transactions DataFrame
+	FUNC display transactions from specific Group
+
+	FUNC display transactions from specific Category
+
+	FUNC display transactions from specific date
+
+	FUNC display spending transactions that pull from specific category
+
+
 
 
 # Main Guard

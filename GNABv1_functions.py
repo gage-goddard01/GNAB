@@ -28,6 +28,7 @@ def collect_banking_info():
     
 
     # Create ready to allocate variable and make initial account balance the ready to allocate
+    
     ready_to_allocate = bank_account_balance
     bank_info_dict = dict(bank_name=bank_name, account_name=account_name, bank_account_balance=bank_account_balance)
 
@@ -48,7 +49,7 @@ def display_banking_info(bank_name, account_name, bank_account_balance):
 
 # Initialize Transactions DataFrame
 def create_transaction_DF():
-    all_transactions = pd.DataFrame({
+    all_transactions_df =pd.DataFrame({
             "Group": [],
             "Date": [],
             "Account": [],
@@ -57,6 +58,7 @@ def create_transaction_DF():
             "Memo": [],
             "Amount": []
                     })
+    return all_transactions_df
     
 
 
@@ -118,6 +120,17 @@ def enter_transaction():
     transaction_date = input("Enter the transaction date: ")
     transaction_memo = input("(Optional) Enter the transaction memo: ")
     transaction_amount = float(input("Enter the transaction amount: $"))
+
+    all_transactions_df =pd.DataFrame({
+                "Group": [transaction_group],
+                "Category": [transaction_category],
+                "Date": [transaction_date],
+                "Account": [transaction_account],
+                "Payee": [transaction_payee],
+                "Memo": [transaction_memo],
+                "Amount": [transaction_amount]
+                        })
+    
     print()
     print("=============================================")
     print()
@@ -263,9 +276,9 @@ def customize_budget_menu(budget):
             elif custbudg_MainMenu_selection == 4:
                 display_budget(budget)
             elif custbudg_MainMenu_selection == 5:
-                break
+                display_transactions(all_transactions_df)
             elif custbudg_MainMenu_selection == 6:
-                f.display_transactions(all_transactions)
+                break
     print("-------------------------------")
     print(budget)
     print("-------------------------------")

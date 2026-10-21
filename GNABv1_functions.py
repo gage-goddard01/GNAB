@@ -48,7 +48,7 @@ def display_banking_info(bank_name, account_name, bank_account_balance):
     print()
 
 # Initialize Transactions DataFrame
-def create_transaction_DF():
+def create_transactions_df():
     all_transactions_df =pd.DataFrame({
             "Group": [],
             "Date": [],
@@ -60,8 +60,15 @@ def create_transaction_DF():
                     })
     return all_transactions_df
     
+# Convert all_transactions DataFrame to re-usable CSV
+def all_transactions_df_to_CSV():   
+    all_transactions.to_csv("all_transactions.csv", index=False)
 
-
+# Load CSV data into Python all_transactions DataFrame
+    def load_all_transactions_csv_into_df():
+        all_transactions = pd.read_csv("all_transactions.csv")
+        return all_transactions
+    
 # Create Default Budget
 def create_default_budget(dictionary):
     print()
@@ -83,6 +90,15 @@ def create_default_budget(dictionary):
     print("=============================================")
     print()
     return budget
+
+# Convert Budget DataFrame to CSV file for persistent storage
+
+def make_budget_df_a_csv(budget):
+    budget.to_csv("budget.csv", index=False)
+
+# Load Budget CSV into usable Python DataFrame
+def budget_csv_to_df():
+    budget = pd.read_csv("budget.csv")
 
 # Display Budget Function
 def display_budget(budget):

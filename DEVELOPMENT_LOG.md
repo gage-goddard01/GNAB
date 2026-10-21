@@ -34,3 +34,16 @@ and architectural decisions.
 - pandas DataFrame operations
 - Input validation and exception handling
 - Separating user interface code from application logic
+
+## October 19, 2026
+
+### Development Progress
+
+1. Improved and reorganized pseudocode.
+2. Improved .gitignore so csv file and database are not pushed to GitHub
+3. Decided to use SQLite instead of CSV files for persistent storage. Began
+developing functions for storage.
+4. Created GNAB_storage module to store functions related to CSV files and SQLite. 
+
+## October 20, 2016
+1. Created GNAB_storage.py to store functions to implement database functionality
